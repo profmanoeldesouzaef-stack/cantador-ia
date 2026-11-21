@@ -7,7 +7,19 @@ cantador/
 └── supabase/functions/compor-cantiga/    backend: prompt, Gemini + Claude, lista negra, escansão
 ```
 
-## 1. Backend (uma vez)
+## 0. Jeito mais rápido: só o APK
+
+1. Cada push na `main` faz o GitHub Actions gerar o APK. Ele aparece em **Releases** do repositório como `cantador-ia.apk`.
+2. Baixe no celular e instale (permita "instalar apps desconhecidos").
+3. No app, vá em **Ajustes** e cole a chave do Gemini (grátis em https://aistudio.google.com/apikey). A do Claude é opcional.
+
+Nesse modo o app fala direto com as IAs, e a chave fica guardada só no seu celular. O backend abaixo
+é para quando o app for distribuído para outras pessoas, porque aí a chave não pode ficar no aparelho.
+
+Todo APK é assinado com a mesma chave (`app/assinatura/debug.keystore`), então a versão nova instala por cima
+da antiga sem apagar o caderno. Para publicar na Play Store, troque por uma chave de release própria.
+
+## 1. Backend (opcional, uma vez)
 
 1. Crie um projeto no Supabase (o plano gratuito serve).
 2. Pegue as chaves das IAs:
